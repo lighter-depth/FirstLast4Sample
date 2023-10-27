@@ -82,7 +82,12 @@ args
 ```
 <br>
 
-メソッド チェーンの構文中で使用可能なメソッドは次の通りです。
+メソッド チェーンの構文中で使用可能なメソッドは次の通りです。  
+<br>
+<details>
+ <summary>使用可能なメソッド一覧（折り畳み）</summary>
+ <div>
+  
 - [All<TSource>(IEnumerable<TSource>, Func<TSource,Boolean>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.all?view=net-7.0#system-linq-enumerable-all-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean))))
 - [Any<TSource>(IEnumerable<TSource>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.any?view=net-7.0#system-linq-enumerable-any-1(system-collections-generic-ienumerable((-0))))
 - [Any<TSource>(IEnumerable<TSource>, Func<TSource,Boolean>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.any?view=net-7.0#system-linq-enumerable-any-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean))))
@@ -130,4 +135,57 @@ args
 - [SelectMany<TSource,TResult>(IEnumerable<TSource>, Func<TSource,IEnumerable<TResult>>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.selectmany?view=net-7.0#system-linq-enumerable-selectmany-2(system-collections-generic-ienumerable((-0))-system-func((-0-system-collections-generic-ienumerable((-1))))))
 - [Single<TSource>(IEnumerable<TSource>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.single?view=net-7.0#system-linq-enumerable-single-1(system-collections-generic-ienumerable((-0))))
 - [Single<TSource>(IEnumerable<TSource>, Func<TSource,Boolean>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.single?view=net-7.0#system-linq-enumerable-single-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean))))
-- [
+- [SingleOrDefault<TSource>(IEnumerable<TSource>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.singleordefault?view=net-7.0#system-linq-enumerable-singleordefault-1(system-collections-generic-ienumerable((-0))))
+- [SingleOrDefault<TSource>(IEnumerable<TSource>, Func<TSource,Boolean>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.singleordefault?view=net-7.0#system-linq-enumerable-singleordefault-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean))))
+- [Skip<TSource>(IEnumerable<TSource>, Int32)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.skip?view=net-7.0#system-linq-enumerable-skip-1(system-collections-generic-ienumerable((-0))-system-int32))
+- [SkipWhile<TSource>(IEnumerable<TSource>, Func<TSource,Boolean>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.skipwhile?view=net-7.0#system-linq-enumerable-skipwhile-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean))))
+- [Sum<TSource>(IEnumerable<TSource>, Func<TSource,Decimal>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.sum?view=net-7.0#system-linq-enumerable-sum-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-decimal))))
+- [Sum<TSource>(IEnumerable<TSource>, Func<TSource,Double>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.sum?view=net-7.0#system-linq-enumerable-sum-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-double))))
+- [Sum<TSource>(IEnumerable<TSource>, Func<TSource,Int32>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.sum?view=net-7.0#system-linq-enumerable-sum-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-int32))))
+- [Sum<TSource>(IEnumerable<TSource>, Func<TSource,Int64>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.sum?view=net-7.0#system-linq-enumerable-sum-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-int64))))
+- [Sum<TSource>(IEnumerable<TSource>, Func<TSource,Single>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.sum?view=net-7.0#system-linq-enumerable-sum-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-single))))
+- [Take<TSource>(IEnumerable<TSource>, Int32)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.take?view=net-7.0#system-linq-enumerable-take-1(system-collections-generic-ienumerable((-0))-system-int32))
+- [TakeWhile<TSource>(IEnumerable<TSource>, Func<TSource,Boolean>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.takewhile?view=net-7.0#system-linq-enumerable-takewhile-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean))))
+- [ThenBy<TSource,TKey>(IOrderedEnumerable<TSource>, Func<TSource,TKey>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.thenby?view=net-7.0#system-linq-enumerable-thenby-2(system-linq-iorderedenumerable((-0))-system-func((-0-1))))
+- [ThenByDescending<TSource,TKey>(IOrderedEnumerable<TSource>, Func<TSource,TKey>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.thenbydescending?view=net-7.0#system-linq-enumerable-thenbydescending-2(system-linq-iorderedenumerable((-0))-system-func((-0-1))))
+- [ToArray<TSource>(IEnumerable<TSource>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.toarray?view=net-7.0#system-linq-enumerable-toarray-1(system-collections-generic-ienumerable((-0))))
+- [ToList<TSource>(IEnumerable<TSource>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.tolist?view=net-7.0#system-linq-enumerable-tolist-1(system-collections-generic-ienumerable((-0))))
+- [Union<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.union?view=net-7.0#system-linq-enumerable-union-1(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-0))))
+- [Where<TSource>(IEnumerable<TSource>, Func<TSource,Boolean>)](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.enumerable.where?view=net-7.0#system-linq-enumerable-where-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean))))
+ 
+</div>
+</details>
+<br>
+<br>
+
+メソッド内部では、簡易的な文法を用いた、引数の指定を行うことが可能です。  
+メソッド内部で実行可能な操作は、**内部コンテキスト**に依存します。
+### 内部コンテキスト
+**内部コンテキスト**とは、メソッド チェーン要素のメソッド中でのみ使用可能な、簡易的な文法の適用を示します。
+内部コンテキスト下で使用可能な文法は以下の通りです。
+- リテラル
+- `@item` キーワード
+- メンバーアクセス（`x.member`, `x.method(args)`）
+- インデクサー（`x[index]`）
+- クラス メンバーアクセス（`T.member`, `T.method(args)`）
+- 算術否定演算子（`-`）
+- 算術二項演算子（`+`, `-`, `*`, `/`, `%`）
+- 論理演算子（`!`, `&&`, `||`）
+- 比較演算子（`==`, `!=`, `>`, `<`, `>=`, `<=`）
+- 三項演算子（`?:`）
+- ヌル合体演算子（`??`）
+
+以下の機能は使用できません。  
+（代表的なものを示しています）
+- ビット演算子
+- `await` 演算子
+- 補完文字列
+- キャスト
+- オブジェクトの生成
+- 拡張メソッド
+- ジェネリクス
+- タプル
+- `switch` 式
+- `default` 式
+- 属性
+- `unsafe` コード
