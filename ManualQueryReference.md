@@ -175,6 +175,14 @@ args
 - ヌル合体演算子（`??`）
 - ラムダ演算子（`=>`）
 
+#### 集合クエリ内部
+以下のクエリ演算子内部では、通常のクエリ内部の機能に加えて、クエリ演算子の使用も可能です。
+
+- Concat(IEnumerable, IEnumerable)
+- Except(IEnumerable, IEnumerable)
+- Intersect(IEnumerable, IEnumerable)
+- Union(IEnumerable, IEnumerable)
+
 ### クエリ外部
 メソッド チェーンの外部(トップ レベル)では、クエリ内部に加えて以下の機能を利用することができます。
 
