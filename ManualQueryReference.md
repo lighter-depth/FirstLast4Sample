@@ -325,7 +325,31 @@ args
 |芸術|`Art`|`C`|
 |食べ物|`Food`|`F`|
 |暴力|`Violence`|`V`|
+|医療|`Health`|`H`|
+|人体|`Body`|`B`|
+|機械|`Mech`|`M`|
+|理科|`Science`|`Q`|
+|時間|`Time`|`T`|
+|人物|`Person`|`P`|
+|工作|`Work`|`K`|
+|服飾|`Cloth`|`L`|
+|社会|`Society`|`S`|
+|遊び|`Play`|`J`|
+|虫|`Bug`|`D`|
+|数学|`Math`|`X`|
+|暴言|`Insult`|`Z`|
+|宗教|`Religion`|`R`|
+|スポーツ|`Sports`|`U`|
+|天気|`Weather`|`W`|
+|物語|`Tale`|`O`|
+|無属性|`Empty`|`I`|
 
+なお、タイプ名コードはCase-Insensitiveです。また、タイプシンボル名は`WordType`列挙型のメンバー名と完全に同一です。  
+すなわち、以下の3つのコードは全て同一の意味となります。
+
+```csharp
+@TW.Where(x => x.\c($Sports))
+```
 
 ### `Word`リテラル
 
