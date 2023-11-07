@@ -256,17 +256,26 @@ args
 ### 文字リテラル
 `'a'`のように、引用符で囲まれた文字は**文字リテラル**として解釈されます。  
 [単純なエスケープ シーケンス](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/language-specification/lexical-structure#character-literals)、
-および[Unicode文字エスケープ シーケンス](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/language-specification/lexical-structure#unicode-character-escape-sequences)の利用が可能です。  
+および[Unicode文字エスケープ シーケンス](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/language-specification/lexical-structure#unicode-character-escape-sequences)の利用が可能です。
+
+<br>
+<br>
+
 文字リテラルは`char`型として扱われます。
 
 ### 文字列リテラル
-`"Hello"`のように、二重引用符で囲まれた0個以上の文字は**文字列リテラル**として解釈されます。文字列リテラル中には単純なエスケープ シーケンスおよびUnicode文字エスケープ シーケンスを含めることができます。  
+`"Hello"`のように、二重引用符で囲まれた0個以上の文字は**文字列リテラル**として解釈されます。  
+文字列リテラル中には単純なエスケープ シーケンスおよびUnicode文字エスケープ シーケンスを含めることができます。
+
+<br>
+<br>
+
 文字列リテラルは`string`型として扱われます。
 > [!NOTE]
 > FirstLast4は挿入文字列リテラル(`$"`)をサポートしません。代替として[string.Format](https://learn.microsoft.com/ja-jp/dotnet/api/system.string.format?view=net-7.0#system-string-format(system-string-system-object()))メソッドを用いることができます。
 
 ### 正規表現リテラル
-`` `^[あ-う]{2,5}[がぐ]ー*$` ``のように、バッククオート(`` ` ``)で囲まれた文字は**正規表現リテラル**として解釈されます。
+`` `^[あ-う]{2,5}[がぐ]ー*$` ``のように、バッククオート(`` ` ``)で囲まれた文字は**正規表現リテラル**として解釈されます。  
 正規表現リテラルは[`Regex`型](https://learn.microsoft.com/ja-jp/dotnet/api/system.text.regularexpressions.regex?view=net-7.0)のオブジェクトに変換されるため、`Regex`型のメソッド(`IsMatch`など)を用いたマッチングが可能です。
 
 ```javascript
@@ -285,14 +294,38 @@ args
 // 配列の型を推論できないのでエラー
 [1, 2.0, 'a', /りんご YF/w]
 ```
-ただし、共通の型への明示的なキャストを行うことにより、配列の作成が可能です。
+ただし、共通の型への明示的なキャストを行うことにより、動的な型が異なる場合でも配列の作成が可能です。
 ```cpp
 // キャストを行えば作成可能
 [static_cast<object>(3), static_cast<object>(2.5), static_cast<object>("hello")]
 ```
 ### 辞書リテラル
+[辞書セレクタ](#辞書セレクタ)と同じ構文を式中で用いることで、対応する辞書を参照することができます。
+```csharp
+@TN.Except(@4X).Concat(@D4)
+```
+無効な辞書セレクタを使用した場合や、型が一致しない場合にはエラーが発生します。
 
+```csharp
+@TW.Except(@AA) // エラー: 無効な辞書セレクタ
+
+@TW.Concat(@D4) // エラー: 無効な型変換
+```
 ### `WordType`リテラル
+`$`マークに続けて既定の文字列を入力することにより、**`WordType`型のリテラル**として解釈される場合があります。  
+既定の文字列には、`WordType`列挙型の各値に対応する**タイプシンボル名**および**タイプ名コード**が含まれます。  
+具体的な一覧は次の通りです。
+|タイプ名|タイプシンボル名|タイプ名コード|
+|--|--|--|
+|ノーマル|`Normal`|`N`|
+|動物|`Animal`|`A`|
+|植物|`Plant`|`Y`|
+|地名|`Place`|`G`|
+|感情|`Emote`|`E`|
+|芸術|`Art`|`C`|
+|食べ物|`Food`|`F`|
+|暴力|`Violence`|`V`|
+
 
 ### `Word`リテラル
 
