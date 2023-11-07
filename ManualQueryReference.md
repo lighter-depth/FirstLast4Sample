@@ -210,6 +210,19 @@ args
 あるコマンドにおいて、任意個の空白を除外した最初のトークンが`#`である場合、そのコマンドは**プリプロセッサ ディレクティブ**として扱われます。
 
 ### 条件付き翻訳
+`#ifdef`, `#ifndef`, `#elifdef`, `#elifndef`, `#else` および `#endif`ディレクティブを使用することで、定義されているシンボルに応じた翻訳の条件付けを行うことが可能です。
+
+```c
+#ifdef FOO
+// シンボル FOO が定義済みの場合にのみ実行
+#elifdef BAR
+// シンボル FOO が未定義で、シンボル BARが定義済みの場合にのみ実行
+#else
+// シンボル FOO およびシンボル BAR がともに未定義の場合にのみ実行
+#endif
+```
+
+これらのディレクティブは、モジュール定義の文脈下でのみ有効です。
 ### 定義
 ### 定義の削除
 ### 表示
@@ -241,4 +254,27 @@ args
 |`decimal`|`m`|
 
 ### 文字リテラル
-`'a'`のように、引用符で囲まれた文字は**文字リテラル**として解釈されます。
+`'a'`のように、引用符で囲まれた文字は**文字リテラル**として解釈されます。  
+[単純なエスケープ シーケンス](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/language-specification/lexical-structure#character-literals)、
+および[Unicode文字エスケープ シーケンス](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/language-specification/lexical-structure#unicode-character-escape-sequences)の利用が可能です。  
+文字リテラルは`char`型として扱われます。
+
+### 文字列リテラル
+`"Hello"`のように、二重引用符で囲まれた0個以上の文字は**文字列リテラル**として解釈されます。文字列リテラル中には単純なエスケープ シーケンスおよびUnicode文字エスケープ シーケンスを含めることができます。  
+文字列リテラルは`string`型として扱われます。
+> [!NOTE]
+> FirstLast4は挿入文字列リテラル(`$"`)をサポートしません。代替として[string.Format](https://learn.microsoft.com/ja-jp/dotnet/api/system.string.format?view=net-7.0#system-string-format(system-string-system-object()))メソッドを用いることができます。
+
+
+### 正規表現リテラル
+`` `^[あ-う]{2,5}[がぐ]ー*$` ``のように、バッククオート(`` ` ``)で囲まれた文字は**正規表現リテラル**として解釈されます。
+
+### コレクションリテラル
+
+### 辞書リテラル
+
+### `WordType`リテラル
+
+### `Word`リテラル
+
+#### Deduce リテラル
