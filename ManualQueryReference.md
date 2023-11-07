@@ -265,12 +265,31 @@ args
 > [!NOTE]
 > FirstLast4は挿入文字列リテラル(`$"`)をサポートしません。代替として[string.Format](https://learn.microsoft.com/ja-jp/dotnet/api/system.string.format?view=net-7.0#system-string-format(system-string-system-object()))メソッドを用いることができます。
 
-
 ### 正規表現リテラル
 `` `^[あ-う]{2,5}[がぐ]ー*$` ``のように、バッククオート(`` ` ``)で囲まれた文字は**正規表現リテラル**として解釈されます。
+正規表現リテラルは[`Regex`型](https://learn.microsoft.com/ja-jp/dotnet/api/system.text.regularexpressions.regex?view=net-7.0)のオブジェクトに変換されるため、`Regex`型のメソッド(`IsMatch`など)を用いたマッチングが可能です。
+
+```javascript
+// [あ, い, う, え, お] のいずれかで終わる単語にマッチ
+@TW.Where(w => `[あいうえお]ー*$`.IsMatch(w.Name))
+```
 
 ### コレクションリテラル
-
+角かっこ(`[]`)を用いて複数の値を囲むことにより、**配列の初期化**を行うことができます。
+```csharp
+// 配列を初期化
+[1, 2, 3, 4, 5].Where(i => i % 2 == 0)
+```
+配列の型は要素の型から推論されます。したがって、共通の型を推論できない場合には配列を作成することはできません。
+```javascript
+// 配列の型を推論できないのでエラー
+[1, 2.0, 'a', /りんご YF/w]
+```
+ただし、共通の型への明示的なキャストを行うことにより、配列の作成が可能です。
+```cpp
+// キャストを行えば作成可能
+[static_cast<object>(3), static_cast<object>(2.5), static_cast<object>("hello")]
+```
 ### 辞書リテラル
 
 ### `WordType`リテラル
