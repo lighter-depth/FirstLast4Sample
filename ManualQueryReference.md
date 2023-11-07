@@ -343,14 +343,45 @@ args
 |天気|`Weather`|`W`|
 |物語|`Tale`|`O`|
 |無属性|`Empty`|`I`|
-
-なお、タイプ名コードはCase-Insensitiveです。また、タイプシンボル名は`WordType`列挙型のメンバー名と完全に同一です。  
-すなわち、以下の3つのコードは全て同一の意味となります。
-
-```csharp
-@TW.Where(x => x.\c($Sports))
-```
+> [!NOTE]
+> タイプ名コードはCase-Insensitiveです。また、タイプシンボル名は`WordType`列挙型のメンバー名と完全に同一です。  
+> すなわち、以下の4つのコードは全て同一の意味となります。
+> 
+> ```
+> // タイプシンボル名
+> @TW.Where(x => x.\c($Sports))
+> 
+> // タイプ名コード(大文字)
+> @TW.Where(x => x.\c($U))
+> 
+> // タイプ名コード(小文字)
+> @TW.Where(x => x.\c($u))
+> 
+> // 完全修飾名
+> @TW.Where(x => x.\c(WordType.Sports))
+> ```
 
 ### `Word`リテラル
+スラッシュ(`/`)で囲まれた文字列は、`Word`構造体のリテラルとして解釈される場合があります。  
+FirstLast4は、**明示的な`Word`リテラル**および**Deduceリテラル**の2種類のリテラルをサポートします。
+#### 明示的な`Word`リテラル
+以下の文法により表現されるリテラルは、**明示的な`Word`リテラル**として解釈されます。
+```antlr
+explicit-word-literal
+ : '/' literal_body '/w'
+ ;
+
+literal-body
+ : word-name (' ' type-code type-code?)?
+ ;
+
+word-name
+ : ('ぁ'..'ゟ' | 'ー')*
+ ;
+
+type-code
+ : 'A'..'Z' | 'a'..'z'
+ ;
+```
 
 #### Deduce リテラル
