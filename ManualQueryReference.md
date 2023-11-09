@@ -363,19 +363,19 @@ FirstLast4は、**明示的な`Word`リテラル**および**Deduceリテラル*
 #### 明示的な`Word`リテラル
 以下の文法により表現されるリテラルは、**明示的な`Word`リテラル**として解釈されます。
 ```antlr
-explicit-word-literal
+explicit_word_literal
  : '/' literal_body '/w'
  ;
 
-literal-body
+literal_body
  : word-name (' ' type-code type-code?)?
  ;
 
-word-name
+word_name
  : ('ぁ'..'ゟ' | 'ー')*
  ;
 
-type-code
+type_code
  : 'A'..'Z' | 'a'..'z'
  ;
 ```
@@ -400,11 +400,11 @@ type-code
 #### Deduce リテラル
 以下の文法により表現されるリテラルは、**Deduceリテラル**として解釈されます。
 ```antlr
-deduce-literal
+deduce_literal
  : '/' word-name '/d'
  ;
 
-word-name
+word_name
  : ('ぁ'..'ゟ' | 'ー')*
  ;
 ```
