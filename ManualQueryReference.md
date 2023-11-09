@@ -257,19 +257,15 @@ args
 `'a'`のように、引用符で囲まれた文字は**文字リテラル**として解釈されます。  
 [単純なエスケープ シーケンス](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/language-specification/lexical-structure#character-literals)、
 および[Unicode文字エスケープ シーケンス](https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/language-specification/lexical-structure#unicode-character-escape-sequences)の利用が可能です。
-
 <br>
 <br>
-
 文字リテラルは`char`型として扱われます。
 
 ### 文字列リテラル
 `"Hello"`のように、二重引用符で囲まれた0個以上の文字は**文字列リテラル**として解釈されます。  
 文字列リテラル中には単純なエスケープ シーケンスおよびUnicode文字エスケープ シーケンスを含めることができます。
-
 <br>
 <br>
-
 文字列リテラルは`string`型として扱われます。
 > [!NOTE]
 > FirstLast4は挿入文字列リテラル(`$"`)をサポートしません。代替として[string.Format](https://learn.microsoft.com/ja-jp/dotnet/api/system.string.format?view=net-7.0#system-string-format(system-string-system-object()))メソッドを用いることができます。
@@ -383,5 +379,32 @@ type-code
  : 'A'..'Z' | 'a'..'z'
  ;
 ```
+明示的な`Word`リテラルは、明示的なタイプ指定を行いつつ`Word`構造体を生成する場合に適しています。
 
+```javascript
+/あいいろ C/w // あいいろ(芸術)
+
+/くり FY/w // くり(食べ物/植物)
+
+/ぬれぎぬ/w // ぬれぎぬ(分類なし)
+```
+
+> [!IMPORTANT]
+> リテラルの仕様上、不正なタイプを持つ単語を生成することも可能です。
+> ```
+> /るーじゅばっく B/w
+> 
+> /ぬりかべ VV/w
+> ```
+> 不正なタイプが許容されない場合には、Deduceリテラルを使用してください。
 #### Deduce リテラル
+以下の文法により表現されるリテラルは、**Deduceリテラル**として解釈されます。
+```antlr
+deduce-literal
+ : '/' word-name '/d'
+ ;
+
+word-name
+ : ('ぁ'..'ゟ' | 'ー')*
+ ;
+```
