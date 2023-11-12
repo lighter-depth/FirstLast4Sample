@@ -39,3 +39,30 @@ public static double CalcEffectiveDmg(WordType t1, WordType t2);
 ```csharp
 public int CompareTo(Word other);
 ```
+### FromString(String)
+文字列値から単語のタイプを推論し、`Word`構造体のインスタンスを生成します。
+> [!NOTE]
+> タイプの推論に失敗した場合は、必ず無属性のインスタンスが生成されます。  
+> 単語が無属性辞書に含まれるかどうかを加味したい場合は、`@TN`辞書セレクタを用いてください。
+```csharp
+public static Word FromString(string name);
+```
+### IsSuitable(Word)
+このインスタンスが、指定した`Word`オブジェクトに対し、しりとりのルール上適切であるかどうかを示します。
+```csharp
+public int IsSuitable(Word prev);
+```
+#### 戻り値
+**Int32**  
+しりとりのルール上の適切性を表すフラグです。
+|値| 意味 |
+| -- | -- |
+| 0 | しりとりのルール上正常です。 |
+| 1 | 開始文字が一致していません。 |
+| -1 | 「ん」で終わっています。 |
+
+### ToString()
+このインスタンスの値を、それと等価な文字列形式に変換します。
+```csharp
+public override string ToString();
+```
