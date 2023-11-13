@@ -39,6 +39,20 @@ public static double CalcEffectiveDmg(WordType t1, WordType t2);
 ```csharp
 public int CompareTo(Word other);
 ```
+### Contains(WordType)
+指定されたタイプを、このインスタンスが含むかどうかを示します。
+メソッドのエイリアスは`\c`です。
+> [!NOTE]
+> 単タイプの単語は、`Type2`が`WordType.Empty`であることにより、常に「無属性を含む」ものとして扱われます。これは`Contains(WordType, WordType)`メソッドについても同様です。
+```csharp
+public bool Contains(WordType type);
+```
+### Contains(WordType, WordType)
+指定された2つのタイプ(`type1`, `type2`)のいずれかを、このインスタンスが含むかどうかを示します。
+メソッドのエイリアスは`\c`です。
+```csharp
+public bool Contains(WordType type1, WordType type2);
+```
 ### FromString(String)
 文字列値から単語のタイプを推論し、`Word`構造体のインスタンスを生成します。
 > [!NOTE]
